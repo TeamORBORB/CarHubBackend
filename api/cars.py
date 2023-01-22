@@ -2,11 +2,14 @@ from flask import Blueprint, request, jsonify
 import requests
 from flask_restful import Api, Resource
 
+# Creating a Flask blueprint and API routing
 cars_api = Blueprint('cars_api', __name__ ,
                     url_prefix='/api/cars')
 
+# API instance from flask_restful
 api = Api(cars_api)
 
+# Get request for the API
 def carsAPI():
     global cars_api  
     try: cars_info
@@ -24,6 +27,7 @@ def carsAPI():
     cars_info = response
     return response
 
+# Get method + json of the response
 class CarsAPI(Resource):
     def get(self):
         response = carsAPI()
