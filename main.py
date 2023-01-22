@@ -9,18 +9,14 @@ from model.jokes import initJokes
 from model.users import initUsers
 
 # setup APIs
-from api.covid import covid_api # Blueprint import api definition
-from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
-
-# setup App pages
-from projects.projects import app_projects # Blueprint directory import projects definition
+from api.cars import cars_api
 
 # register URIs
-app.register_blueprint(joke_api) # register api routes
-app.register_blueprint(covid_api) # register api routes
+# app.register_blueprint(joke_api) # register api routes
 app.register_blueprint(user_api) # register api routes
-app.register_blueprint(app_projects) # register app pages
+app.register_blueprint(cars_api) # register api routes
+
 
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
