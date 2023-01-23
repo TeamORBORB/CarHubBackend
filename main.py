@@ -1,5 +1,5 @@
 import threading
-
+import requests
 # import "packages" from flask
 from flask import render_template  # import render_template from "public" flask libraries
 
@@ -10,13 +10,16 @@ from model.users import initUsers
 
 # setup APIs
 from api.user import user_api # Blueprint import api definition
-from api.cars import cars_api
+from api.years import years_api
+from api.makes import makes_api
+from api.models import models_api
 
 # register URIs
 # app.register_blueprint(joke_api) # register api routes
 app.register_blueprint(user_api) # register api routes
-app.register_blueprint(cars_api) # register api routes
-
+app.register_blueprint(years_api) # register api routes
+app.register_blueprint(makes_api)
+app.register_blueprint(models_api)
 
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
@@ -27,9 +30,23 @@ def page_not_found(e):
 def index():
     return render_template("index.html")
 
+# @app.route('/carID/<int:id>')
+# def car_ID(id):
+#     # Make a GET request to the car ID API endpoint, allowing the data of a specific car to be retrieved
+#     response = requests.get(f'http://192.168.1.23:8049/api/cars/car/{id}')
+#     # Parse the JSON response
+#     car_data = response.json()
+#     # Render the car ID in a template
+
+
 @app.route('/stub/')  # connects /stub/ URL to stub() function
 def stub():
     return render_template("stub.html")
+
+@app.route('/cars/')  
+def car():
+    return render_template("cars.html")
+
 
 @app.before_first_request
 def activate_job():
