@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, render_template
-import http.client
+import requests
 from flask_restful import Api, Resource
 from __init__ import app
 
@@ -16,3 +16,4 @@ res = conn.getresponse()
 data = res.read()
 
 print(data.decode("utf-8"))
+
