@@ -1,8 +1,0 @@
--- Add a new column 'NewColumnName' to table 'TableName' in schema 'SchemaName'
-ALTER TABLE SchemaName.TableName
-    ADD NewColumnName CREATE TABLE users int AUTO_INCREMENT PRIMARY KEY, NULL /*new_column_nullability*/
-GO
-  email VARCHAR(255) NOT NULL UNIQUE,
-  username VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL
-

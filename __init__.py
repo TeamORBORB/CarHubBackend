@@ -1,8 +1,10 @@
+import threading
+
+# import "packages" from flask
+from flask import render_template
 from flask import Flask
-from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_restful import Api, Resource
 
 """
 These object can be used throughout project.
